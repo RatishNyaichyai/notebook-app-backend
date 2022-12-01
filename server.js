@@ -21,7 +21,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe'
 
-const uri = 'mongodb+srv://Ratishadd:frznheart20@cluster0.c7skkwb.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Ratish:frznheart20@cluster0.c7skkwb.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
     .connect(uri, {
