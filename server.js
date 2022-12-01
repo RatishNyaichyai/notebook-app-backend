@@ -9,11 +9,12 @@ const app = express();
 app.use(express.json());
 
 const cors = require('cors');
-app.use(cors({
-    origin: [
-        'http://localhost:3000', 'https://notebook-app-frontend.onrender.com/'
-    ]
-}));
+// app.use(cors({
+//     origin: [
+//         'http://localhost:3000', 'https://notebook-app-frontend.onrender.com/'
+//     ]
+// }));
+app.use(cors());
 
 const bcrypt = require('bcryptjs');
 
@@ -77,6 +78,6 @@ app.post('/login', async (req, res) => {
     res.json({ status: 'error', error: 'Invalid Password' });
 })
 
-app.listen(PORT, () => {
+app.listen(PORT || 5000, () => {
     console.log('Server Started');
 })
