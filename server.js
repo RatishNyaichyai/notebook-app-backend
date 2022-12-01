@@ -1,19 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('./database')
+require('./database');
+require('dotenv').config();
+
+const PORT = process.env.PORT;
 
 const app = express();
 app.use(express.json());
 
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+    origin: [
+        'http://localhost:3000', 'https://notebook-app-frontend.onrender.com/'
+    ]
+}));
 
 const bcrypt = require('bcryptjs');
 
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe'
 
-const uri = 'mongodb+srv://Ratish:frznheart20@cluster0.c7skkwb.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Ratishadd:frznheart20@cluster0.c7skkwb.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
     .connect(uri, {
@@ -70,6 +77,6 @@ app.post('/login', async (req, res) => {
     res.json({ status: 'error', error: 'Invalid Password' });
 })
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log('Server Started');
 })
