@@ -35,6 +35,7 @@ mongoose
 
 const User = mongoose.model('UserInfo')
 
+
 app.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -78,6 +79,6 @@ app.post('/login', async (req, res) => {
     res.json({ status: 'error', error: 'Invalid Password' });
 })
 
-app.listen(PORT || 5000, () => {
+app.listen(PORT, () => {
     console.log('Server Started');
 })
